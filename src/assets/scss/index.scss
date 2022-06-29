@@ -1,0 +1,15 @@
+.header {
+  @include xy;
+  height: $header-heigth !important;
+}
+
+.snb {
+  @include xy($y: $header-heigth);
+  max-height: none !important;
+  height: $snb-height !important;
+  width: $snb-width !important;
+}
+
+.main {
+  padding: $header-heigth 0 0 $snb-width !important;
+}

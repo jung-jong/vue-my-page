@@ -1,0 +1,8 @@
+$header-heigth: 70px;
+$snb-height: calc(100% - $header-heigth);
+$snb-width: 250px;
+
+@mixin xy($x: 0, $y: 0) {
+  left: $x !important;
+  top: $y !important;
+}
