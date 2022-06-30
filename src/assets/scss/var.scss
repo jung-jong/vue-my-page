@@ -1,8 +1,12 @@
 $header-heigth: 70px;
 $snb-height: calc(100% - $header-heigth);
 $snb-width: 250px;
+$table-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 
 @mixin xy($x: 0, $y: 0) {
   left: $x !important;
   top: $y !important;
+}
+
+@mixin table {
 }

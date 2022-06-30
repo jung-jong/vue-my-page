@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="white">
+  <v-app-bar app color="white" clipped-left>
     <!-- -->
   </v-app-bar>
 </template>
