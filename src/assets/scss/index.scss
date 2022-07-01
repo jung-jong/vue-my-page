@@ -1,3 +1,5 @@
+@import "var.scss";
+
 .header {
   @include xy;
   height: $header-heigth !important;
@@ -11,5 +13,10 @@
 }
 
 .main {
-  padding: $header-heigth 0 0 $snb-width !important;
+  padding: {
+    top: $header-heigth !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: $snb-width !important;
+  }
 }

@@ -1,3 +1,5 @@
+@import "var.scss";
+
 table {
   border-spacing: 0 20px !important;
   padding: 0 20px;
@@ -19,4 +21,26 @@ table {
       }
     }
   }
+}
+
+.card {
+  border-radius: 10px !important;
+  .card-btn {
+    position: absolute;
+    @include xy($-x: 5%, $y: 5%);
+    .v-btn {
+      &:focus::before {
+        opacity: 0 !important;
+      }
+    }
+  }
+}
+
+.active {
+  outline: 2px solid #b39ddb;
+}
+
+.url-menu {
+  // position: absolute;
+  margin-top: 20px;
 }

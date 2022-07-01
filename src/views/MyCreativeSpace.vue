@@ -137,6 +137,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/var.scss";
 @import "@/assets/scss/my-creative.scss";
 </style>
