@@ -3,15 +3,15 @@ $snb-height: calc(100% - $header-heigth);
 $snb-width: 250px;
 $table-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 
-@mixin xy($x: 0, $y: 0, $-x: null, $-y: null) {
-  left: $x !important;
-  top: $y !important;
-  right: $-x !important;
-  bottom: $-y !important;
-  @if $-x {
+@mixin position($left: 0, $top: 0, $right: null, $bottom: null) {
+  left: $left !important;
+  top: $top !important;
+  @if $right {
+    right: $right !important;
     left: auto !important;
   }
-  @if $-y {
+  @if $bottom {
+    bottom: $bottom !important;
     top: auto !important;
   }
 }

@@ -1,12 +1,16 @@
 @import "var.scss";
 
+*:focus::before {
+  opacity: 0 !important;
+}
+
 .header {
-  @include xy;
+  @include position;
   height: $header-heigth !important;
 }
 
 .snb {
-  @include xy($y: $header-heigth);
+  @include position($top: $header-heigth);
   max-height: none !important;
   height: $snb-height !important;
   width: $snb-width !important;
@@ -18,5 +22,28 @@
     right: 0 !important;
     bottom: 0 !important;
     left: $snb-width !important;
+  }
+}
+
+table {
+  border-spacing: 0 20px !important;
+  padding: 0 20px;
+  margin: 20px 0;
+  border-top: 3px solid grey !important;
+  thead {
+    tr {
+      th {
+        border: none !important;
+      }
+    }
+  }
+  tbody {
+    tr {
+      box-shadow: $table-shadow;
+      border-radius: 5px !important;
+      td {
+        border: none !important;
+      }
+    }
   }
 }

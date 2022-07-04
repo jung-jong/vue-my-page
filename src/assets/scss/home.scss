@@ -1,3 +1,28 @@
+@import "var.scss";
+
 .subtitle {
   margin: 16px 0;
+}
+
+.card {
+  border-radius: 10px !important;
+  .card-btn {
+    position: absolute;
+    @include position($right: 5%, $top: 5%);
+  }
+}
+
+.active {
+  outline: 2px solid #b39ddb !important;
+}
+
+.url-menu {
+  // margin-top: 20px !important;
+  // position: absolute;
+  // @include position
+}
+
+.edit-menu {
+  position: absolute;
+  @include position($left: 50%, $top: 50px);
 }
