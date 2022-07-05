@@ -1,11 +1,9 @@
-@import "var.scss";
-
 .subtitle {
   margin: 16px 0;
 }
 
 .card {
-  border-radius: 10px !important;
+  border-radius: $radius !important;
   .card-btn {
     position: absolute;
     @include position($right: 5%, $top: 5%);
@@ -16,13 +14,16 @@
   outline: 2px solid #b39ddb !important;
 }
 
-.url-menu {
-  // margin-top: 20px !important;
-  // position: absolute;
-  // @include position
-}
-
 .edit-menu {
   position: absolute;
   @include position($left: 50%, $top: 50px);
+  .url-menu {
+    border-radius: $radius !important;
+    position: absolute;
+    @include position($left: 105%, $top: 0);
+    .text {
+      border: 2px solid rgba(0, 0, 0, 0.232);
+      margin: 2rem;
+    }
+  }
 }

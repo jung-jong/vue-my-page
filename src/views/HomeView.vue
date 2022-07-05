@@ -42,7 +42,7 @@
             <v-menu offset-y :close-on-content-click="false">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  class="me-3"
+                  class="mr-3"
                   color="deep-purple lighten-3"
                   fab
                   x-small
@@ -54,19 +54,57 @@
               </template>
             </v-menu>
 
-            <v-btn color="white" fab x-small>
+            <v-btn
+              color="white"
+              fab
+              x-small
+              @click="showEditMenu = !showEditMenu"
+            >
               <v-icon color="deep-purple lighten-3">mdi-dots-horizontal</v-icon>
             </v-btn>
-            <div class="edit-menu">
-              <v-card>
+
+            <div class="edit-menu" v-if="showEditMenu">
+              <v-card width="300px" @click.stop="">
                 <v-list>
                   <v-list-item-group active-class="" color="indigo">
                     <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title @click="urlMenuOpen()"
+                      <v-list-item-title @click="urlMenuOpen(item.title)"
                         >{{ item.title }}
                       </v-list-item-title>
                     </v-list-item>
                   </v-list-item-group>
+                </v-list>
+              </v-card>
+
+              <v-card
+                width="300px"
+                class="url-menu"
+                @click.stop=""
+                v-if="showUrlMenu"
+              >
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-title>공유 URL</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-title>공유 URL 사용</v-list-item-title>
+                    <v-list-item-action>
+                      <v-switch v-model="message" color="purple"></v-switch>
+                    </v-list-item-action>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-title>공유 URL</v-list-item-title>
+                    <v-btn elevation="1" small outlined>URL 복사</v-btn>
+                  </v-list-item>
+                  <v-text-field
+                    class="text"
+                    solo
+                    readonly
+                    flat
+                    hide-details="auto"
+                    :value="localAdmin"
+                    >URL 복사</v-text-field
+                  >
                 </v-list>
               </v-card>
             </div>
@@ -76,39 +114,6 @@
           <v-card-text class="text--primary">
             <div>Whitehaven Beach</div>
           </v-card-text>
-        </v-card>
-
-        <v-card width="300px" class="url-menu">
-          <v-list>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>공유 URL</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>공유 URL 사용</v-list-item-title>
-              <v-list-item-action>
-                <v-switch v-model="message" color="purple"></v-switch>
-              </v-list-item-action>
-            </v-list-item>
-
-            <v-list-item>
-              <v-list-item-action>
-                <v-switch v-model="hints" color="purple"></v-switch>
-              </v-list-item-action>
-              <v-list-item-title>Enable hints</v-list-item-title>
-            </v-list-item>
-          </v-list>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-
-            <v-btn text @click="menu = false"> Cancel </v-btn>
-            <v-btn color="primary" text @click="menu = false"> Save </v-btn>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -185,9 +190,8 @@ export default {
         { title: "사본 저장" },
         { title: "삭제" },
       ],
-      menu: false,
-      message: false,
-      hints: true,
+      showEditMenu: false,
+      showUrlMenu: false,
     };
   },
   mixins: [mixin],
@@ -200,8 +204,12 @@ export default {
     getMyBoard() {
       this.$axios.get("/my-page/api/my-board.php").then((response) => {
         this.myBoard = response.data;
-        console.log(this.myBoard);
       });
+    },
+    urlMenuOpen(value) {
+      if (value === "공유 URL") {
+        return (this.showUrlMenu = !this.showUrlMenu);
+      }
     },
   },
   mounted() {
@@ -210,6 +218,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "@/assets/scss/home.scss";
-</style>
+<style lang="scss" scoped></style>

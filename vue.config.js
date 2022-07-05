@@ -5,6 +5,13 @@ module.exports = defineConfig({
 
 const target = "http://localhost";
 module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/variables.scss";`,
+      },
+    },
+  },
   devServer: {
     historyApiFallback: true,
     port: 3000,
@@ -16,11 +23,4 @@ module.exports = {
     },
   },
   publicPath: process.env.NODE_ENV === "production" ? "/admin/" : "/",
-  // css: {
-  //   loaderOptions: {
-  //     scss: {
-  //       additionalData: `@import "~@/variables.scss";`,
-  //     },
-  //   },
-  // },
 };

@@ -1,1 +1,22 @@
-@import "var.scss";
+table {
+  border-spacing: 0 20px !important;
+  padding: 0 20px;
+  margin: 20px 0;
+  border-top: 3px solid grey !important;
+  thead {
+    tr {
+      th {
+        border: none !important;
+      }
+    }
+  }
+  tbody {
+    tr {
+      box-shadow: $table-shadow;
+      border-radius: 5px !important;
+      td {
+        border: none !important;
+      }
+    }
+  }
+}
