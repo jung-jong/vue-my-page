@@ -1,0 +1,6 @@
+.snb {
+  @include position($top: $header-heigth);
+  max-height: none !important;
+  height: $snb-height !important;
+  width: $snb-width !important;
+}

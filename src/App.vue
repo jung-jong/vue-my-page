@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <header-bar class="header"></header-bar>
-    <side-nav class="snb"></side-nav>
+    <header-bar></header-bar>
+    <side-nav></side-nav>
 
     <!-- Sizes your content based upon application components -->
     <v-main class="main">

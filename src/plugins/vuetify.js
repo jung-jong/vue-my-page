@@ -1,8 +1,13 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib/framework";
-
-import "@/assets/scss/index.scss";
+import "@/scss/index.scss";
+import ko from "vuetify/lib/locale/ko";
 
 Vue.use(Vuetify);
 
-export default new Vuetify({});
+export default new Vuetify({
+  lang: {
+    locales: { ko },
+    current: "ko",
+  },
+});

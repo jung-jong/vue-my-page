@@ -5,13 +5,13 @@ module.exports = defineConfig({
 
 const target = "http://localhost";
 module.exports = {
-  css: {
-    loaderOptions: {
-      scss: {
-        additionalData: `@import "@/assets/scss/variables.scss";`,
-      },
-    },
-  },
+  // css: {
+  //   loaderOptions: {
+  //     scss: {
+  //       additionalData: `@import "@/scss/variables.scss";`,
+  //     },
+  //   },
+  // },
   devServer: {
     historyApiFallback: true,
     port: 3000,

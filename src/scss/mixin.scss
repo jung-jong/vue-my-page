@@ -1,0 +1,39 @@
+@mixin button-font($name) {
+  .#{$name}-button {
+    @if $name == "main" {
+      // .main-button
+      font-weight: map-get($map: $font-weight, $key: "regular") !important;
+      font-size: 11pt !important;
+      color: #ffffff !important;
+    } @else if $name == "sub" {
+      // .sub-button
+      font-weight: map-get($map: $font-weight, $key: "regular") !important;
+      font-size: 15px !important;
+      color: map-get($map: font-color, $key: "color-2") !important;
+    } @else if $name == "direction" {
+      // .direction-button
+      font-weight: map-get($map: $font-weight, $key: "regular") !important;
+      font-size: 13px !important;
+      color: map-get($map: $main-color, $key: "main") !important;
+    }
+  }
+}
+
+@mixin position($left: 0, $top: 0, $right: null, $bottom: null) {
+  left: $left !important;
+  top: $top !important;
+  @if $right {
+    right: $right !important;
+    left: auto !important;
+  }
+  @if $bottom {
+    bottom: $bottom !important;
+    top: auto !important;
+  }
+}
+
+@mixin position-center {
+  left: 50% !important;
+  right: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}

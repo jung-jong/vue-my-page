@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex justify-space-between">
-      <span class="text-h6">"개인"에 대한 검색결과(총 건)</span>
+      <span class="">"개인"에 대한 검색결과(총 건)</span>
       <v-form>
         <v-row align-content="center" justify="end">
           <v-col cols="3">

@@ -1,0 +1,26 @@
+// vuetify
+$body-font-family: noto-sans-cjk-kr, sans-serif;
+$toolbar-content-padding-y: unset;
+$toolbar-content-padding-x: unset;
+// 커스텀
+$header-heigth: 70px;
+$snb-height: calc(100% - $header-heigth);
+$snb-width: 250px;
+$table-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+$radius: 8px;
+// 가이드
+$line-color: #eeeeee;
+$main-color: (
+  "main": #a096f0,
+  "sub-1": #9691aa,
+  "sub-2": #eceaf2,
+);
+$font-weight: (
+  "regular": 400,
+  "bold": 700,
+);
+$font-color: (
+  "color-1": #999999,
+  "color-2": #666666,
+  "color-3": #222222,
+);

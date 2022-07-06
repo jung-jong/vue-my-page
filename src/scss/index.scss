@@ -1,0 +1,18 @@
+@import "mixin";
+@import "home";
+@import "my-creative";
+@import "header";
+@import "snb";
+
+*:focus::before {
+  opacity: 0 !important;
+}
+
+.main {
+  padding: {
+    top: $header-heigth !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: $snb-width !important;
+  }
+}

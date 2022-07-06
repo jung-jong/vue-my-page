@@ -15,12 +15,13 @@
 }
 
 .edit-menu {
+  z-index: 10;
   position: absolute;
   @include position($left: 50%, $top: 50px);
   .url-menu {
     border-radius: $radius !important;
     position: absolute;
-    @include position($left: 105%, $top: 0);
+    @include position($left: 100%, $top: 50%);
     .text {
       border: 2px solid rgba(0, 0, 0, 0.232);
       margin: 2rem;

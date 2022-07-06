@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app absolute permanent>
+  <v-navigation-drawer class="snb" app absolute permanent>
     <v-list class="py-10 pe-5">
       <v-list-item-group v-model="model">
         <v-list-item
