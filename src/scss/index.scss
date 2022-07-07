@@ -4,6 +4,10 @@
 @import "header";
 @import "snb";
 
+* {
+  letter-spacing: 0.03em !important;
+}
+
 *:focus::before {
   opacity: 0 !important;
 }

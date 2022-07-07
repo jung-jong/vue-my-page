@@ -2,25 +2,43 @@
 $body-font-family: noto-sans-cjk-kr, sans-serif;
 $toolbar-content-padding-y: unset;
 $toolbar-content-padding-x: unset;
+$list-item-title-font-size: 11pt;
+$list-item-icon-margin: 0;
 // 커스텀
 $header-heigth: 70px;
 $snb-height: calc(100% - $header-heigth);
 $snb-width: 250px;
 $table-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 $radius: 8px;
-// 가이드
-$line-color: #eeeeee;
-$main-color: (
-  "main": #a096f0,
-  "sub-1": #9691aa,
-  "sub-2": #eceaf2,
-);
+$edit-menu-width: 200px;
+$url-menu-width: 300px;
 $font-weight: (
   "regular": 400,
   "bold": 700,
 );
+$main-color: (
+  "main": rgb(160, 150, 240),
+  "sub-1": rgb(150, 145, 171),
+  "sub-2": rgb(236, 234, 242),
+);
 $font-color: (
-  "color-1": #999999,
-  "color-2": #666666,
-  "color-3": #222222,
+  "color-1": rgb(153, 153, 153),
+  "color-2": rgb(102, 102, 102),
+  "color-3": rgb(34, 34, 34),
+);
+$bg-color: (
+  "color-1": rgb(238, 238, 238),
+  "color-2": rgb(221, 221, 221),
+);
+$line-color: (
+  "color-1": rgb(238, 238, 238),
+  "color-2": rgb(221, 221, 221),
+  "color-3": rgb(204, 204, 204),
+  "color-4": rgb(153, 153, 153),
+  "color-5": rgb(102, 102, 102),
+);
+$icon-color: (
+  "color-1": rgb(204, 204, 204),
+  "color-2": rgb(102, 102, 102),
+  "color-3": rgb(34, 34, 34),
 );

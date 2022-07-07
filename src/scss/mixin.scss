@@ -1,5 +1,5 @@
 @mixin button-font($name) {
-  .#{$name}-button {
+  .#{$name}-btn {
     @if $name == "main" {
       // .main-button
       font-weight: map-get($map: $font-weight, $key: "regular") !important;

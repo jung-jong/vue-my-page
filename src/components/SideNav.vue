@@ -1,8 +1,10 @@
 <template>
-  <v-navigation-drawer class="snb" app absolute permanent>
-    <v-list class="py-10 pe-5">
+  <v-navigation-drawer class="snb" app absolute permanent floating>
+    <v-list class="list" flat>
       <v-list-item-group v-model="model">
         <v-list-item
+          class="item"
+          active-class="color"
           v-for="(item, i) in items"
           :key="i"
           :to="
@@ -11,7 +13,7 @@
           "
           link
         >
-          <v-list-item-icon>
+          <v-list-item-icon class="icon">
             <v-icon v-text="item.icon"></v-icon>
           </v-list-item-icon>
           <v-list-item-content>

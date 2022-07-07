@@ -1,21 +1,23 @@
 .header {
   @include position;
   height: $header-heigth !important;
-  border-bottom: 1px solid #eeeeee !important;
+  border-bottom: 1px solid map-get($map: $line-color, $key: "color-3") !important;
   background-color: white !important;
   .v-toolbar__content {
     height: $header-heigth !important;
   }
-  .header-btn {
+  .sub-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding: 15px 30px;
+    padding: 15px 29px;
     @include button-font("main");
     .btn {
-      padding: 0 23px;
-      height: 40px !important;
+      padding: 0;
       background-color: map-get($map: $main-color, $key: "main") !important;
+      width: 166px;
+      height: 40px;
     }
   }
 }

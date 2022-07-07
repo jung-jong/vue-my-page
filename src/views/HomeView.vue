@@ -38,7 +38,7 @@
           >
           </v-img>
 
-          <div class="card-btn">
+          <div class="card-btn" @click.stop="">
             <v-menu offset-y :close-on-content-click="false">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -54,21 +54,67 @@
               </template>
             </v-menu>
 
-            <v-btn
-              color="white"
-              fab
-              x-small
-              @click="showEditMenu = !showEditMenu"
+            <v-menu
+              :close-on-content-click="false"
+              offset-y
+              content-class="drop-menu"
             >
-              <v-icon color="deep-purple lighten-3">mdi-dots-horizontal</v-icon>
-            </v-btn>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  color="white"
+                  fab
+                  x-small
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="showEditMenu = !showEditMenu"
+                >
+                  <v-icon id="edit-btn" color="deep-purple lighten-3"
+                    >mdi-dots-horizontal</v-icon
+                  >
+                </v-btn>
+              </template>
 
-            <div class="edit-menu" v-if="showEditMenu">
+              <v-list class="edit-menu" elevation="3">
+                <v-list-item-group color="indigo">
+                  <v-list-item v-for="(item, index) in items" :key="index">
+                    <v-list-item-title>{{ item.title }} </v-list-item-title>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+
+              <v-list class="url-menu" elevation="3">
+                <v-list-item>
+                  <v-list-item-title>공유 URL</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>공유 URL 사용</v-list-item-title>
+                  <v-list-item-action>
+                    <v-switch color="purple"></v-switch>
+                  </v-list-item-action>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>공유 URL</v-list-item-title>
+                  <v-btn elevation="1" small outlined>URL 복사</v-btn>
+                </v-list-item>
+                <v-text-field
+                  class="text"
+                  solo
+                  readonly
+                  flat
+                  hide-details="auto"
+                  :value="localAdmin"
+                  >URL 복사</v-text-field
+                >
+              </v-list>
+            </v-menu>
+
+            <!-- <div ref="edit" class="edit-menu" v-show="showEditMenu">
               <v-card width="300px" @click.stop="">
                 <v-list>
                   <v-list-item-group active-class="" color="indigo">
                     <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title @click="urlMenuOpen(item.title)"
+                      <v-list-item-title
+                        @click="urlMenuOpen(item.title, $event)"
                         >{{ item.title }}
                       </v-list-item-title>
                     </v-list-item>
@@ -80,7 +126,7 @@
                 width="300px"
                 class="url-menu"
                 @click.stop=""
-                v-if="showUrlMenu"
+                v-show="showUrlMenu"
               >
                 <v-list>
                   <v-list-item>
@@ -89,7 +135,7 @@
                   <v-list-item>
                     <v-list-item-title>공유 URL 사용</v-list-item-title>
                     <v-list-item-action>
-                      <v-switch v-model="message" color="purple"></v-switch>
+                      <v-switch color="purple"></v-switch>
                     </v-list-item-action>
                   </v-list-item>
                   <v-list-item>
@@ -107,7 +153,7 @@
                   >
                 </v-list>
               </v-card>
-            </div>
+            </div> -->
           </div>
 
           <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
@@ -206,14 +252,22 @@ export default {
         this.myBoard = response.data;
       });
     },
-    urlMenuOpen(value) {
+    urlMenuOpen(value, event) {
+      // console.log(event.target.textContent);
       if (value === "공유 URL") {
-        return (this.showUrlMenu = !this.showUrlMenu);
+        this.showUrlMenu = !this.showUrlMenu;
       }
+    },
+    editMenuOutClick(event) {
+      // const btn = document.querySelector("#edit-btn");
+      // const edit = document.querySelector(".edit-menu");
+      // if (event.target === btn) return;
+      // this.showEditMenu = false;
     },
   },
   mounted() {
     this.getMyBoard();
+    window.addEventListener("click", this.editMenuOutClick);
   },
 };
 </script>

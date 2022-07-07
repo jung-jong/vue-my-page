@@ -3,4 +3,22 @@
   max-height: none !important;
   height: $snb-height !important;
   width: $snb-width !important;
+  border-right: 1px solid map-get($map: $line-color, $key: "color-3") !important;
+  .list {
+    padding: 50px 0;
+    .item {
+      height: 50px;
+      padding: 0 20px;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        width: 24px;
+        height: 24px;
+        align-self: center;
+      }
+    }
+    .color {
+      color: map-get($map: $main-color, $key: "main");
+    }
+  }
 }
