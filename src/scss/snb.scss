@@ -1,7 +1,7 @@
 .snb {
   @include position($top: $header-heigth);
   max-height: none !important;
-  height: $snb-height !important;
+  max-height: $snb-height !important;
   width: $snb-width !important;
   border-right: 1px solid map-get($map: $line-color, $key: "color-3") !important;
   .list {

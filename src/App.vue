@@ -6,15 +6,11 @@
     <!-- Sizes your content based upon application components -->
     <v-main class="main">
       <!-- Provides the application the proper gutter -->
-      <v-container fluid class="px-10 py-10">
+      <v-container fluid>
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
     </v-main>
-
-    <v-footer app>
-      <!-- -->
-    </v-footer>
   </v-app>
 </template>
 

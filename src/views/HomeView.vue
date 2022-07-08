@@ -74,26 +74,73 @@
                 </v-btn>
               </template>
 
-              <v-list class="edit-menu" elevation="3">
-                <v-list-item-group color="indigo">
-                  <v-list-item v-for="(item, index) in items" :key="index">
-                    <v-list-item-title>{{ item.title }} </v-list-item-title>
+              <v-list class="edit-menu">
+                <v-list-item-group active-class="edit-active">
+                  <v-list-item>
+                    <div class="edit-icon">
+                      <img src="@/assets/icons/icon_list_name.png" alt="" />
+                    </div>
+                    <v-list-item-title>이름 수정</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item>
+                    <div class="edit-icon">
+                      <img
+                        src="@/assets/icons/icon_list_folder_move.png"
+                        alt=""
+                      />
+                    </div>
+                    <v-list-item-title>폴더 이동</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item>
+                    <div class="edit-icon">
+                      <img
+                        src="@/assets/icons/icon_list_share_url.png"
+                        alt=""
+                      />
+                    </div>
+                    <v-list-item-title @click="showUrlMenu = !showUrlMenu"
+                      >공유 URL</v-list-item-title
+                    >
+                  </v-list-item>
+                  <v-list-item>
+                    <div class="edit-icon">
+                      <img
+                        src="@/assets/icons/icon_list_duplication.png"
+                        alt=""
+                      />
+                    </div>
+                    <v-list-item-title>사본 저장</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item>
+                    <div class="edit-icon">
+                      <img
+                        src="@/assets/icons/icon_list_waste_basket.png"
+                        alt=""
+                      />
+                    </div>
+                    <v-list-item-title>삭제</v-list-item-title>
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
 
-              <v-list class="url-menu" elevation="3">
+              <v-list class="url-menu" elevation="3" v-show="showUrlMenu">
                 <v-list-item>
-                  <v-list-item-title>공유 URL</v-list-item-title>
+                  <v-list-item-title class="url-title"
+                    >공유 URL</v-list-item-title
+                  >
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>공유 URL 사용</v-list-item-title>
+                <v-list-item class="url-menu-item">
+                  <v-list-item-title class="url-title-sub"
+                    >공유 URL 사용</v-list-item-title
+                  >
                   <v-list-item-action>
                     <v-switch color="purple"></v-switch>
                   </v-list-item-action>
                 </v-list-item>
-                <v-list-item>
-                  <v-list-item-title>공유 URL</v-list-item-title>
+                <v-list-item class="url-menu-item">
+                  <v-list-item-title class="url-title-sub"
+                    >공유 URL</v-list-item-title
+                  >
                   <v-btn elevation="1" small outlined>URL 복사</v-btn>
                 </v-list-item>
                 <v-text-field

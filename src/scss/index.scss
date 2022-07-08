@@ -1,4 +1,5 @@
 @import "mixin";
+@import "main";
 @import "home";
 @import "my-creative";
 @import "header";
@@ -10,13 +11,4 @@
 
 *:focus::before {
   opacity: 0 !important;
-}
-
-.main {
-  padding: {
-    top: $header-heigth !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: $snb-width !important;
-  }
 }

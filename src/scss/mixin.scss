@@ -19,6 +19,14 @@
   }
 }
 
+@mixin drop-menu-box {
+  border: 1px solid map-get($map: $line-color, $key: "color-1") !important;
+  border-radius: $radius !important;
+  box-shadow: $box-shadow !important;
+  color: map-get($map: $font-color, $key: "color-2") !important;
+  font-weight: map-get($map: $font-weight, $key: "regular") !important;
+}
+
 @mixin position($left: 0, $top: 0, $right: null, $bottom: null) {
   left: $left !important;
   top: $top !important;
