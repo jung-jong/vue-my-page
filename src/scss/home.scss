@@ -1,3 +1,17 @@
+.search-title {
+  font-size: 18px !important;
+  font-weight: map-get($map: $font-weight, $key: "bold") !important;
+  letter-spacing: 0.03em !important;
+}
+
+.color {
+  color: map-get($map: $main-color, $key: "main");
+}
+
+.count {
+  color: map-get($map: $font-color, $key: "color-1");
+}
+
 .subtitle {
   margin: 16px 0;
 }
@@ -21,7 +35,6 @@
   padding: 20px 0;
   overflow: visible;
   contain: none;
-  // width: calc($edit-menu-width + $url-menu-width);
   .edit-menu {
     width: 180px;
     height: 270px;

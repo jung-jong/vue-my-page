@@ -1,17 +1,13 @@
 <template>
   <div>
     <div class="d-flex justify-space-between">
-      <span class="">"개인"에 대한 검색결과(총 건)</span>
-      <v-form>
-        <v-row align-content="center" justify="end">
-          <v-col cols="3">
-            <v-text-field label="field" solo dense></v-text-field>
-          </v-col>
-          <v-col cols="3">
-            <v-select label="field" dense solo></v-select>
-          </v-col>
-        </v-row>
-      </v-form>
+      <div class="d-flex align-center">
+        <span class="search-title color">개인</span>
+        <span class="search-title">에 대한 검색결과</span>
+        <span class="search-title count">&nbsp;(총 건)</span>
+      </div>
+
+      <search-form></search-form>
     </div>
 
     <div class="d-flex justify-space-between subtitle">
@@ -154,53 +150,6 @@
                 >
               </v-list>
             </v-menu>
-
-            <!-- <div ref="edit" class="edit-menu" v-show="showEditMenu">
-              <v-card width="300px" @click.stop="">
-                <v-list>
-                  <v-list-item-group active-class="" color="indigo">
-                    <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title
-                        @click="urlMenuOpen(item.title, $event)"
-                        >{{ item.title }}
-                      </v-list-item-title>
-                    </v-list-item>
-                  </v-list-item-group>
-                </v-list>
-              </v-card>
-
-              <v-card
-                width="300px"
-                class="url-menu"
-                @click.stop=""
-                v-show="showUrlMenu"
-              >
-                <v-list>
-                  <v-list-item>
-                    <v-list-item-title>공유 URL</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-title>공유 URL 사용</v-list-item-title>
-                    <v-list-item-action>
-                      <v-switch color="purple"></v-switch>
-                    </v-list-item-action>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-title>공유 URL</v-list-item-title>
-                    <v-btn elevation="1" small outlined>URL 복사</v-btn>
-                  </v-list-item>
-                  <v-text-field
-                    class="text"
-                    solo
-                    readonly
-                    flat
-                    hide-details="auto"
-                    :value="localAdmin"
-                    >URL 복사</v-text-field
-                  >
-                </v-list>
-              </v-card>
-            </div> -->
           </div>
 
           <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
@@ -268,8 +217,10 @@
 
 <script>
 import mixin from "@/mixins.js";
+import SearchForm from "@/components/SearchForm.vue";
 
 export default {
+  components: { SearchForm },
   name: "HomeView",
   data() {
     return {

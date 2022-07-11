@@ -4,11 +4,20 @@
 @import "my-creative";
 @import "header";
 @import "snb";
+@import "search";
 
 * {
-  letter-spacing: 0.03em !important;
+  letter-spacing: $letter-spacing !important;
 }
 
 *:focus::before {
   opacity: 0 !important;
+}
+
+#app {
+  @include main-font;
+}
+
+.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+  @include main-font;
 }

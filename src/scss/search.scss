@@ -1,0 +1,81 @@
+.search-wrap {
+  width: 500px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .search {
+    border: 1px solid map-get($map: $line-color, $key: "color-2");
+    border-radius: $search-height;
+    width: 213px;
+    height: $search-height;
+    padding: {
+      left: 45px;
+      right: 20px;
+    }
+    &::placeholder {
+      color: map-get($map: $font-color, $key: "color-1");
+    }
+    &:focus-visible {
+      outline: none;
+    }
+    &:focus {
+      box-shadow: $box-shadow;
+    }
+  }
+  .search-img {
+    position: absolute;
+    @include position($top: 50%);
+    transform: translateY(-50%);
+    margin-left: 20px;
+  }
+  .select-btn {
+    border: 1px solid map-get($map: $line-color, $key: "color-2") !important;
+    border-radius: $search-height !important;
+    width: $select-btn-width !important;
+    height: $search-height !important;
+    padding: 0 20px !important;
+    margin: 0;
+    box-shadow: none;
+    .v-btn__content {
+      position: unset;
+      width: 100%;
+      height: 100%;
+    }
+    .select-img {
+      position: absolute;
+      @include position($right: 0, $top: 50%);
+      transform: translateY(-50%);
+      margin-right: 20px;
+    }
+  }
+}
+
+.select {
+  box-shadow: none;
+  padding: -10px 0;
+  overflow: visible;
+  contain: none;
+  .options {
+    @include drop-menu-box;
+    width: $select-btn-width !important;
+    border: 1px solid map-get($map: $line-color, $key: "color-2") !important;
+    .options-active {
+      background-color: map-get($map: $main-color, $key: "sub-2");
+      &::before {
+        opacity: 0;
+      }
+    }
+    .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+      color: inherit !important;
+    }
+    .edit-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+    }
+  }
+}

@@ -3,13 +3,17 @@ $body-font-family: noto-sans-cjk-kr, sans-serif;
 $toolbar-content-padding-y: unset;
 $toolbar-content-padding-x: unset;
 $list-item-padding: 0 20px;
+$list-item-content-padding: 0;
 $list-item-min-height: 50px;
-$list-item-title-font-size: 11pt;
+$list-item-title-font-size: 15px;
 $list-item-icon-margin: 0;
 // 커스텀
+$letter-spacing: 0.03em;
 $header-heigth: 70px;
 $snb-height: calc(100vh - $header-heigth);
 $snb-width: 250px;
+$search-height: 46px;
+$select-btn-width: 130px;
 $table-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 $radius: 8px;
 $box-shadow: 5px 5px 10px rgb(238, 238, 238);

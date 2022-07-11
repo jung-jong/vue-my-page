@@ -5,20 +5,26 @@
   width: $snb-width !important;
   border-right: 1px solid map-get($map: $line-color, $key: "color-3") !important;
   .list {
-    padding: 50px 0;
+    padding: 40px 0;
+    .active {
+      color: map-get($map: $main-color, $key: "main") !important;
+    }
     .item {
       height: 50px;
       padding: 0 20px;
       align-items: center;
       justify-content: center;
       .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 24px;
         height: 24px;
-        align-self: center;
+        margin-right: 14px;
       }
-    }
-    .color {
-      color: map-get($map: $main-color, $key: "main");
+      .menu {
+        @include main-font;
+      }
     }
   }
 }

@@ -1,3 +1,8 @@
+@mixin main-font {
+  color: map-get($map: $font-color, $key: "color-3") !important;
+  letter-spacing: $letter-spacing !important;
+}
+
 @mixin button-font($name) {
   .#{$name}-btn {
     @if $name == "main" {
