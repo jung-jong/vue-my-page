@@ -1,7 +1,6 @@
 .search-title {
   font-size: 18px !important;
   font-weight: map-get($map: $font-weight, $key: "bold") !important;
-  letter-spacing: 0.03em !important;
 }
 
 .color {
@@ -12,15 +11,43 @@
   color: map-get($map: $font-color, $key: "color-1");
 }
 
-.subtitle {
+.search-title-margin {
   margin: 16px 0;
 }
 
-.card {
-  border-radius: $radius !important;
-  .card-btn {
+.sub-title {
+  font-size: 18px !important;
+  font-weight: map-get($map: $font-weight, $key: "regular") !important;
+}
+
+.img {
+  border-radius: $radius;
+  width: 284px;
+  height: 200px;
+  box-shadow: $box-shadow;
+  z-index: 1;
+}
+
+.contents {
+  width: 284px;
+  position: relative;
+  display: block;
+  // border-radius: $radius !important;
+  .contents-btn {
     position: absolute;
-    @include position($right: 5%, $top: 5%);
+    @include position($top: 5%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+  }
+  .contents-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .contents-text {
+    font-size: 13px;
+    color: map-get($map: $font-color, $key: "color-1");
   }
 }
 

@@ -2,11 +2,7 @@
   <v-app-bar class="header" app flat>
     <div class="sub-header">
       <a href="/">
-        <img
-          src="http://www.clipartkorea.co.kr/image2019/logo.png"
-          alt=""
-          class="logo"
-        />
+        <img src="@/assets/logo.png" alt="" class="logo" />
       </a>
       <v-btn class="main-btn btn" elevation="1" height="auto">
         <img src="@/assets/icons/btn_new_design.png" alt="" />

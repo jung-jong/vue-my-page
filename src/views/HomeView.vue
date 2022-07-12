@@ -1,52 +1,40 @@
 <template>
   <div>
-    <div class="d-flex justify-space-between">
+    <div class="d-flex justify-space-between mb-5">
       <div class="d-flex align-center">
         <span class="search-title color">개인</span>
         <span class="search-title">에 대한 검색결과</span>
         <span class="search-title count">&nbsp;(총 건)</span>
       </div>
 
-      <search-form></search-form>
+      <search-form :serchOption="select"></search-form>
     </div>
 
-    <div class="d-flex justify-space-between subtitle">
-      <span class="text-subtitle-1">최근사용</span>
-      <span class="text-subtitle-1">더보기</span>
+    <div class="d-flex justify-space-between mb-5">
+      <span class="sub-title">최근사용</span>
+      <span class="sub-title color">더보기 +</span>
     </div>
+
+    <!-- <div class="d-flex">
+      <span class="sub-title">최근 작업 디자인</span>
+      <span class="sub-title count">&nbsp;(15일)</span>
+    </div> -->
 
     <v-row class="mb-5">
       <v-col>
-        <v-card
-          class="card"
-          :class="{ active: activeCard }"
-          max-width="300px"
-          @click="
-            {
-              activeCard = !activeCard;
-            }
-          "
-        >
-          <v-img
-            class="white--text align-end"
-            height="200px"
+        <div class="contents">
+          <img
+            class="img"
             src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-          >
-          </v-img>
+            alt=""
+          />
 
-          <div class="card-btn" @click.stop="">
+          <div class="contents-btn" @click.stop="">
             <v-menu offset-y :close-on-content-click="false">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  class="mr-3"
-                  color="deep-purple lighten-3"
-                  fab
-                  x-small
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  <v-icon color="white">mdi-share-variant-outline</v-icon>
-                </v-btn>
+                <div v-bind="attrs" v-on="on">
+                  <img src="@/assets/icons/icon_thumb_share.png" alt="" />
+                </div>
               </template>
             </v-menu>
 
@@ -56,18 +44,13 @@
               content-class="drop-menu"
             >
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  color="white"
-                  fab
-                  x-small
+                <div
                   v-bind="attrs"
                   v-on="on"
                   @click="showEditMenu = !showEditMenu"
                 >
-                  <v-icon id="edit-btn" color="deep-purple lighten-3"
-                    >mdi-dots-horizontal</v-icon
-                  >
-                </v-btn>
+                  <img src="@/assets/icons/icon_thumb_menu.png" alt="" />
+                </div>
               </template>
 
               <v-list class="edit-menu">
@@ -152,11 +135,12 @@
             </v-menu>
           </div>
 
-          <v-card-subtitle class="pb-0"> Number 10 </v-card-subtitle>
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-          </v-card-text>
-        </v-card>
+          <div class="d-flex flex-column">
+            <span class="contents-title">테스트</span>
+            <span class="contents-text">최근수정일 : 0000-00-00</span>
+            <span class="contents-text">위치 : 개인작업</span>
+          </div>
+        </div>
       </v-col>
     </v-row>
 
@@ -236,6 +220,7 @@ export default {
       ],
       showEditMenu: false,
       showUrlMenu: false,
+      select: [{ option: "이름순" }, { option: "테스트" }],
     };
   },
   mixins: [mixin],
@@ -251,16 +236,9 @@ export default {
       });
     },
     urlMenuOpen(value, event) {
-      // console.log(event.target.textContent);
       if (value === "공유 URL") {
         this.showUrlMenu = !this.showUrlMenu;
       }
-    },
-    editMenuOutClick(event) {
-      // const btn = document.querySelector("#edit-btn");
-      // const edit = document.querySelector(".edit-menu");
-      // if (event.target === btn) return;
-      // this.showEditMenu = false;
     },
   },
   mounted() {

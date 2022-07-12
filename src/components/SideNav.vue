@@ -133,9 +133,6 @@ export default {
     };
   },
   methods: {},
-  updated() {
-    console.log(this.model);
-  },
 };
 </script>
 
