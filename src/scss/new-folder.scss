@@ -1,0 +1,18 @@
+.popup-wrap {
+  @include popup($width: 300px, $height: 230px);
+  .popup-header {
+    @include popup-header;
+  }
+  .popup-contents {
+    @include popup-contents;
+    .popup-sub-title {
+      margin-bottom: 15px;
+    }
+    .popup-text {
+      @include popup-text;
+    }
+    .popup-btn {
+      @include popup-btn;
+    }
+  }
+}

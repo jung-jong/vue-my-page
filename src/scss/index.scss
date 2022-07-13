@@ -5,6 +5,7 @@
 @import "header";
 @import "snb";
 @import "search";
+@import "new-folder";
 
 * {
   letter-spacing: $letter-spacing !important;
@@ -16,6 +17,7 @@
 
 #app {
   @include main-font;
+  line-height: 1 !important;
 }
 
 .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {

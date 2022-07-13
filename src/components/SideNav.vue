@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer class="snb" app absolute permanent floating>
+  <v-navigation-drawer class="snb" app permanent floating>
     <v-list class="list" flat>
       <v-list-item-group v-model="model">
         <v-list-item class="item" active-class="active" to="/" link>

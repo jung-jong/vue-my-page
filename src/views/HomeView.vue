@@ -1,160 +1,194 @@
 <template>
   <div>
-    <div class="d-flex justify-space-between mb-5">
-      <div class="d-flex align-center">
+    <div class="d-flex justify-space-between">
+      <!-- <div class="d-flex align-center">
         <span class="search-title color">개인</span>
         <span class="search-title">에 대한 검색결과</span>
-        <span class="search-title count">&nbsp;(총 건)</span>
-      </div>
+        <span class="search-title date">&nbsp;(총 건)</span>
+      </div> -->
 
       <search-form :serchOption="select"></search-form>
     </div>
 
-    <div class="d-flex justify-space-between mb-5">
+    <!-- <div class="d-flex justify-space-between mb-5">
       <span class="sub-title">최근사용</span>
       <span class="sub-title color">더보기 +</span>
-    </div>
-
-    <!-- <div class="d-flex">
-      <span class="sub-title">최근 작업 디자인</span>
-      <span class="sub-title count">&nbsp;(15일)</span>
     </div> -->
 
-    <v-row class="mb-5">
-      <v-col>
-        <div class="contents">
-          <img
-            class="img"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-            alt=""
-          />
+    <div class="contents-wrap">
+      <div class="d-flex">
+        <span class="sub-title">최근 작업 디자인</span>
+        <span class="sub-title date">&nbsp;(15일)</span>
+      </div>
 
-          <div class="contents-btn" @click.stop="">
-            <v-menu offset-y :close-on-content-click="false">
-              <template v-slot:activator="{ on, attrs }">
-                <div v-bind="attrs" v-on="on">
-                  <img src="@/assets/icons/icon_thumb_share.png" alt="" />
-                </div>
-              </template>
-            </v-menu>
+      <div class="contents">
+        <img
+          class="img"
+          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          alt=""
+        />
 
-            <v-menu
-              :close-on-content-click="false"
-              offset-y
-              content-class="drop-menu"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <div
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="showEditMenu = !showEditMenu"
-                >
-                  <img src="@/assets/icons/icon_thumb_menu.png" alt="" />
-                </div>
-              </template>
+        <div class="contents-btn" @click.stop="">
+          <v-menu offset-y :close-on-content-click="false">
+            <template v-slot:activator="{ on, attrs }">
+              <div v-bind="attrs" v-on="on">
+                <img src="@/assets/icons/icon_thumb_share.png" alt="" />
+              </div>
+            </template>
 
-              <v-list class="edit-menu">
-                <v-list-item-group active-class="edit-active">
-                  <v-list-item>
-                    <div class="edit-icon">
-                      <img src="@/assets/icons/icon_list_name.png" alt="" />
-                    </div>
-                    <v-list-item-title>이름 수정</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item>
-                    <div class="edit-icon">
-                      <img
-                        src="@/assets/icons/icon_list_folder_move.png"
-                        alt=""
-                      />
-                    </div>
-                    <v-list-item-title>폴더 이동</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item>
-                    <div class="edit-icon">
-                      <img
-                        src="@/assets/icons/icon_list_share_url.png"
-                        alt=""
-                      />
-                    </div>
-                    <v-list-item-title @click="showUrlMenu = !showUrlMenu"
-                      >공유 URL</v-list-item-title
-                    >
-                  </v-list-item>
-                  <v-list-item>
-                    <div class="edit-icon">
-                      <img
-                        src="@/assets/icons/icon_list_duplication.png"
-                        alt=""
-                      />
-                    </div>
-                    <v-list-item-title>사본 저장</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item>
-                    <div class="edit-icon">
-                      <img
-                        src="@/assets/icons/icon_list_waste_basket.png"
-                        alt=""
-                      />
-                    </div>
-                    <v-list-item-title>삭제</v-list-item-title>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
+            <popup-new-folder></popup-new-folder>
+          </v-menu>
 
-              <v-list class="url-menu" elevation="3" v-show="showUrlMenu">
+          <v-menu
+            :close-on-content-click="false"
+            offset-y
+            content-class="drop-menu"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <div
+                v-bind="attrs"
+                v-on="on"
+                @click="showEditMenu = !showEditMenu"
+              >
+                <img src="@/assets/icons/icon_thumb_menu.png" alt="" />
+              </div>
+            </template>
+
+            <v-list class="edit-menu">
+              <v-list-item-group active-class="edit-active">
                 <v-list-item>
-                  <v-list-item-title class="url-title"
+                  <div class="edit-icon">
+                    <img src="@/assets/icons/icon_list_name.png" alt="" />
+                  </div>
+                  <v-list-item-title>이름 수정</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <div class="edit-icon">
+                    <img
+                      src="@/assets/icons/icon_list_folder_move.png"
+                      alt=""
+                    />
+                  </div>
+                  <v-list-item-title>폴더 이동</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <div class="edit-icon">
+                    <img src="@/assets/icons/icon_list_share_url.png" alt="" />
+                  </div>
+                  <v-list-item-title @click="showUrlMenu = !showUrlMenu"
                     >공유 URL</v-list-item-title
                   >
                 </v-list-item>
-                <v-list-item class="url-menu-item">
-                  <v-list-item-title class="url-title-sub"
-                    >공유 URL 사용</v-list-item-title
-                  >
-                  <v-list-item-action>
-                    <v-switch color="purple"></v-switch>
-                  </v-list-item-action>
+                <v-list-item>
+                  <div class="edit-icon">
+                    <img
+                      src="@/assets/icons/icon_list_duplication.png"
+                      alt=""
+                    />
+                  </div>
+                  <v-list-item-title>사본 저장</v-list-item-title>
                 </v-list-item>
-                <v-list-item class="url-menu-item">
-                  <v-list-item-title class="url-title-sub"
-                    >공유 URL</v-list-item-title
-                  >
-                  <v-btn elevation="1" small outlined>URL 복사</v-btn>
+                <v-list-item>
+                  <div class="edit-icon">
+                    <img
+                      src="@/assets/icons/icon_list_waste_basket.png"
+                      alt=""
+                    />
+                  </div>
+                  <v-list-item-title>삭제</v-list-item-title>
                 </v-list-item>
-                <v-text-field
-                  class="text"
-                  solo
-                  readonly
-                  flat
-                  hide-details="auto"
-                  :value="localAdmin"
-                  >URL 복사</v-text-field
+              </v-list-item-group>
+            </v-list>
+
+            <v-list class="url-menu" elevation="3" v-show="showUrlMenu">
+              <v-list-item>
+                <v-list-item-title class="url-title"
+                  >공유 URL</v-list-item-title
                 >
-              </v-list>
-            </v-menu>
-          </div>
-
-          <div class="d-flex flex-column">
-            <span class="contents-title">테스트</span>
-            <span class="contents-text">최근수정일 : 0000-00-00</span>
-            <span class="contents-text">위치 : 개인작업</span>
-          </div>
+              </v-list-item>
+              <v-list-item class="url-menu-item">
+                <v-list-item-title class="url-title-sub"
+                  >공유 URL 사용</v-list-item-title
+                >
+                <v-list-item-action>
+                  <v-switch color="purple"></v-switch>
+                </v-list-item-action>
+              </v-list-item>
+              <v-list-item class="url-menu-item">
+                <v-list-item-title class="url-title-sub"
+                  >공유 URL</v-list-item-title
+                >
+                <v-btn elevation="1" small outlined>URL 복사</v-btn>
+              </v-list-item>
+              <v-text-field
+                class="text"
+                solo
+                readonly
+                flat
+                hide-details="auto"
+                :value="localAdmin"
+                >URL 복사</v-text-field
+              >
+            </v-list>
+          </v-menu>
         </div>
-      </v-col>
-    </v-row>
 
-    <div class="d-flex justify-space-between subtitle">
+        <div class="d-flex flex-column">
+          <span class="contents-title">테스트</span>
+          <span class="contents-text">최근수정일 : 0000-00-00</span>
+          <span class="contents-text">위치 : 개인작업</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contents-wrap">
+      <div class="d-flex justify-space-between">
+        <span class="sub-title">내 창작공간</span>
+        <span class="sub-title color">더보기 +</span>
+      </div>
+
+      <div class="contents">
+        <img
+          class="img"
+          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          alt=""
+        />
+
+        <div class="d-flex flex-column">
+          <span class="contents-count">항목 ?개</span>
+
+          <span class="contents-title">테스트</span>
+          <span class="contents-text">최근수정일 : 0000-00-00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contents-wrap">
+      <span class="sub-title">내 업로드</span>
+
+      <div class="contents">
+        <img
+          class="img"
+          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          alt=""
+        />
+
+        <div class="d-flex flex-column">
+          <span class="contents-count">항목 ?개</span>
+
+          <span class="contents-title">테스트</span>
+          <span class="contents-text">최근수정일 : 0000-00-00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="d-flex justify-space-between subtitle">
       <span class="text-subtitle-1"
         >E-마이보드 검색결과(총 {{ searchCount }}건)</span
       >
       <span class="text-subtitle-1">더보기</span>
     </div>
 
-    <!-- <v-row class="mb-5">
-      <v-col >
-      </v-col>
-    </v-row> -->
     <div class="d-flex">
       <v-card
         class="card mr-5"
@@ -195,16 +229,17 @@
     <div class="d-flex justify-space-between subtitle">
       <span class="text-subtitle-1">내 업로드 검색결과(총 건)</span>
       <span class="text-subtitle-1">더보기</span>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import mixin from "@/mixins.js";
 import SearchForm from "@/components/SearchForm.vue";
+import PopupNewFolder from "@/components/PopupNewFolder.vue";
 
 export default {
-  components: { SearchForm },
+  components: { SearchForm, PopupNewFolder },
   name: "HomeView",
   data() {
     return {

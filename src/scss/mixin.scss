@@ -1,3 +1,21 @@
+@mixin position($left: 0, $top: 0, $right: null, $bottom: null) {
+  left: $left !important;
+  top: $top !important;
+  @if $right {
+    right: $right !important;
+    left: auto !important;
+  }
+  @if $bottom {
+    bottom: $bottom !important;
+    top: auto !important;
+  }
+}
+@mixin position-center {
+  left: 50% !important;
+  right: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
 @mixin main-font {
   color: map-get($map: $font-color, $key: "color-3") !important;
   letter-spacing: $letter-spacing !important;
@@ -32,21 +50,50 @@
   font-weight: map-get($map: $font-weight, $key: "regular") !important;
 }
 
-@mixin position($left: 0, $top: 0, $right: null, $bottom: null) {
-  left: $left !important;
-  top: $top !important;
-  @if $right {
-    right: $right !important;
-    left: auto !important;
+@mixin popup($width: null, $height: null) {
+  width: $width;
+  height: $height;
+  box-shadow: $box-shadow;
+  background-color: #ffffff;
+  border: 1px solid map-get($map: $line-color, $key: "color-3");
+  border-radius: $popup-radius;
+  font-size: 15px;
+}
+@mixin popup-header {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid map-get($map: $line-color, $key: "color-1");
+  color: map-get($map: $font-color, $key: "color-1");
+}
+@mixin popup-contents {
+  padding: {
+    top: 20px;
+    right: 25px;
+    bottom: 25px;
+    left: 25px;
   }
-  @if $bottom {
-    bottom: $bottom !important;
-    top: auto !important;
+  color: map-get($map: $font-color, $key: "color-3");
+  display: flex;
+  flex-direction: column;
+}
+@mixin popup-text {
+  width: 250px;
+  height: 40px;
+  border: 1px solid map-get($map: $line-color, $key: "color-1");
+  border-radius: $popup-radius;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  &::placeholder {
+    font-size: 13px;
+    color: map-get($map: $line-color, $key: "color-3");
+  }
+  &:focus {
+    outline: none;
   }
 }
-
-@mixin position-center {
-  left: 50% !important;
-  right: 50% !important;
-  transform: translate(-50%, -50%) !important;
+@mixin popup-btn {
+  width: 120px;
+  height: 40px;
+  border: 1px solid map-get($map: $line-color, $key: "color-3");
 }
