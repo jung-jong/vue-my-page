@@ -15,6 +15,36 @@
       <span class="sub-title color">더보기 +</span>
     </div> -->
 
+    <div class="d-flex flex-wrap">
+      <popup-folder
+        :title="'신규 폴더 생성'"
+        :contentsTitle="'폴더명'"
+        :showInputText="true"
+        :btnText="'생성'"
+      ></popup-folder>
+
+      <popup-folder
+        :title="'폴더 이름 수정'"
+        :contentsTitle="'폴더명'"
+        :showInputText="true"
+        :btnText="'변경'"
+      ></popup-folder>
+
+      <popup-folder
+        :title="'폴더 삭제'"
+        :folderName="'folder'"
+        :contentsTitle="'폴더를 삭제하시겠습니까?'"
+        :btnText="'삭제'"
+        :folderCount="3"
+      ></popup-folder>
+
+      <popup-folder
+        :title="'배경색 적용'"
+        :contentsTitle="'선택된 배경색을 적용하시겠습니까?'"
+        :btnText="'확인'"
+      ></popup-folder>
+    </div>
+
     <div class="contents-wrap">
       <div class="d-flex">
         <span class="sub-title">최근 작업 디자인</span>
@@ -35,8 +65,6 @@
                 <img src="@/assets/icons/icon_thumb_share.png" alt="" />
               </div>
             </template>
-
-            <popup-new-folder></popup-new-folder>
           </v-menu>
 
           <v-menu
@@ -236,23 +264,16 @@
 <script>
 import mixin from "@/mixins.js";
 import SearchForm from "@/components/SearchForm.vue";
-import PopupNewFolder from "@/components/PopupNewFolder.vue";
+import PopupFolder from "@/components/PopupFolder.vue";
 
 export default {
-  components: { SearchForm, PopupNewFolder },
+  components: { SearchForm, PopupFolder },
   name: "HomeView",
   data() {
     return {
       myBoard: [],
       localAdmin: "http://localhost/admin/",
       activeCard: false,
-      items: [
-        { title: "이름 수정" },
-        { title: "폴더 이동" },
-        { title: "공유 URL" },
-        { title: "사본 저장" },
-        { title: "삭제" },
-      ],
       showEditMenu: false,
       showUrlMenu: false,
       select: [{ option: "이름순" }, { option: "테스트" }],

@@ -50,7 +50,8 @@
   font-weight: map-get($map: $font-weight, $key: "regular") !important;
 }
 
-@mixin popup($width: null, $height: null) {
+@mixin popup-wrap($width: null, $height: null) {
+  position: relative;
   width: $width;
   height: $height;
   box-shadow: $box-shadow;
@@ -77,13 +78,13 @@
   display: flex;
   flex-direction: column;
 }
-@mixin popup-text {
+@mixin popup-input-text {
   width: 250px;
   height: 40px;
   border: 1px solid map-get($map: $line-color, $key: "color-1");
   border-radius: $popup-radius;
   padding: 0 15px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   &::placeholder {
     font-size: 13px;
     color: map-get($map: $line-color, $key: "color-3");
@@ -92,8 +93,23 @@
     outline: none;
   }
 }
+@mixin popup-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 25px;
+  position: relative;
+  bottom: 25px;
+}
 @mixin popup-btn {
   width: 120px;
   height: 40px;
   border: 1px solid map-get($map: $line-color, $key: "color-3");
+  border-radius: $popup-radius;
+  color: map-get($map: $font-color, $key: "color-1");
+}
+@mixin popup-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }

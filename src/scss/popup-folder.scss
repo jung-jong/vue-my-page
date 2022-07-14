@@ -1,0 +1,77 @@
+.popup-wrap {
+  @include popup-wrap($width: 300px);
+  .popup-header {
+    @include popup-header;
+    .popup-close {
+      @include popup-close;
+    }
+  }
+  .popup-contents {
+    @include popup-contents;
+    .popup-contents-title-wrap {
+      display: flex;
+      .popup-folder-name {
+        color: map-get($map: $main-color, $key: "main");
+      }
+      .popup-contents-title {
+        margin-bottom: 15px;
+      }
+    }
+    .popup-contents-text {
+      color: map-get($map: $font-color, $key: "color-1");
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.5;
+      margin: {
+        right: -25px;
+        bottom: 25px;
+        left: -25px;
+      }
+      .popup-folder-count {
+        color: map-get($map: $main-color, $key: "main");
+      }
+    }
+    .popup-input-text {
+      @include popup-input-text;
+    }
+
+    .popup-check-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding: 0 10px;
+      margin-bottom: 25px;
+      .checkbox {
+        cursor: pointer;
+        background-color: map-get($map: $bg-color, $key: "color-1");
+        border: 1px solid map-get($map: $line-color, $key: "color-3");
+        border-radius: $popup-radius;
+        width: 16px;
+        height: 16px;
+        margin-right: 9px;
+      }
+      input {
+        width: 16px;
+        height: 16px;
+        opacity: 0;
+      }
+      label {
+        cursor: pointer;
+      }
+    }
+    .active-check {
+      color: map-get($map: $main-color, $key: "main");
+    }
+  }
+  .popup-btn-wrap {
+    @include popup-btn-wrap;
+    .popup-btn {
+      @include popup-btn;
+    }
+    .popup-btn-bg {
+      background-color: map-get($map: $main-color, $key: "main");
+      color: white;
+    }
+  }
+}
