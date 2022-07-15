@@ -43,6 +43,14 @@
         :contentsTitle="'선택된 배경색을 적용하시겠습니까?'"
         :btnText="'확인'"
       ></popup-folder>
+
+      <popup-folder-move
+        :id="'user1'"
+        :currentFolder="'테스트'"
+        :folderList="folderList"
+      ></popup-folder-move>
+
+      <popup-url :url="localAdmin"></popup-url>
     </div>
 
     <div class="contents-wrap">
@@ -265,9 +273,11 @@
 import mixin from "@/mixins.js";
 import SearchForm from "@/components/SearchForm.vue";
 import PopupFolder from "@/components/PopupFolder.vue";
+import PopupFolderMove from "@/components/PopupFolderMove.vue";
+import PopupUrl from "@/components/PopupUrl.vue";
 
 export default {
-  components: { SearchForm, PopupFolder },
+  components: { SearchForm, PopupFolder, PopupFolderMove, PopupUrl },
   name: "HomeView",
   data() {
     return {
@@ -277,6 +287,11 @@ export default {
       showEditMenu: false,
       showUrlMenu: false,
       select: [{ option: "이름순" }, { option: "테스트" }],
+      folderList: [
+        { name: "개인작업" },
+        { name: "테스트" },
+        { name: "디자인편집" },
+      ],
     };
   },
   mixins: [mixin],

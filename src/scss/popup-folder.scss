@@ -43,18 +43,18 @@
       padding: 0 10px;
       margin-bottom: 25px;
       .checkbox {
-        cursor: pointer;
         background-color: map-get($map: $bg-color, $key: "color-1");
         border: 1px solid map-get($map: $line-color, $key: "color-3");
         border-radius: $popup-radius;
         width: 16px;
         height: 16px;
         margin-right: 9px;
-      }
-      input {
-        width: 16px;
-        height: 16px;
-        opacity: 0;
+        input {
+          cursor: pointer;
+          width: 16px;
+          height: 16px;
+          opacity: 0;
+        }
       }
       label {
         cursor: pointer;

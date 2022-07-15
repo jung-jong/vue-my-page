@@ -1,3 +1,4 @@
+// 전역
 @import "mixin";
 @import "main";
 @import "home";
@@ -5,7 +6,6 @@
 @import "header";
 @import "snb";
 @import "search";
-@import "popup-folder";
 
 * {
   letter-spacing: $letter-spacing !important;
@@ -22,4 +22,8 @@
 
 .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
   @include main-font;
+}
+
+.v-application--is-ltr .v-input--selection-controls__input {
+  margin: 0;
 }

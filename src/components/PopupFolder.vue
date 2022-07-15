@@ -107,4 +107,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "@/scss/mixin.scss";
+@import "@/scss/popup-folder";
+</style>

@@ -1,0 +1,65 @@
+.popup-wrap {
+  @include popup-wrap($width: 300px, $height: 410px);
+  overflow-y: auto;
+  .popup-close {
+    @include popup-close;
+  }
+  .popup-contents {
+    @include popup-contents;
+    padding: 0 25px;
+    .popup-contents-title-wrap {
+      display: flex;
+      .popup-contents-title {
+        margin: {
+          top: 41px;
+          bottom: 17px;
+        }
+      }
+    }
+    .popup-contents-text {
+      color: map-get($map: $font-color, $key: "color-1");
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+    .popup-folder-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      .popup-folder-btn {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 240px;
+        height: 42px;
+        border: 1px solid map-get($map: $line-color, $key: "color-1");
+        border-radius: $popup-radius;
+        padding: 0 20px;
+        margin-bottom: 10px;
+        color: map-get($map: $font-color, $key: "color-1");
+        .popup-folder-name {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .active {
+        color: map-get($map: $main-color, $key: "main");
+        border: 2px solid map-get($map: $main-color, $key: "main");
+      }
+    }
+  }
+  .popup-btn-wrap {
+    @include popup-btn-wrap;
+    position: absolute;
+    .popup-btn {
+      @include popup-btn;
+    }
+    .popup-btn-bg {
+      background-color: map-get($map: $main-color, $key: "main");
+      color: white;
+    }
+  }
+}

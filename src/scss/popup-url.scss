@@ -1,0 +1,57 @@
+.popup-wrap {
+  @include popup-wrap($width: 300px);
+  .popup-close {
+    @include popup-close;
+  }
+  .popup-contents {
+    @include popup-contents;
+    padding: 0 25px;
+    .popup-contents-title-wrap {
+      display: flex;
+      .popup-contents-title {
+        color: map-get($map: $font-color, $key: "color-3");
+        margin: {
+          top: 41px;
+          bottom: 17px;
+        }
+      }
+    }
+    .popup-contents-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .popup-contents-text {
+        font-size: 11px !important;
+        color: map-get($map: $font-color, $key: "color-2");
+        &:first-child {
+          height: 25px;
+          line-height: 25px;
+        }
+      }
+      .popup-swich {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+      }
+
+      .popup-btn {
+        width: 80px;
+        height: 25px;
+        background-color: rgb(236, 235, 243);
+        font-size: 11px;
+        color: map-get($map: $font-color, $key: "color-1");
+        border-radius: $popup-radius;
+      }
+    }
+    .popup-input-text {
+      @include popup-input-text;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      color: map-get($map: $font-color, $key: "color-1");
+    }
+  }
+}

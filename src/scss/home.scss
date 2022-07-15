@@ -102,26 +102,4 @@
       margin-right: 12px;
     }
   }
-  .url-menu {
-    width: 300px;
-    position: absolute;
-    @include position($left: 100%, $top: 130px);
-    @include drop-menu-box;
-    .url-title {
-      color: map-get($map: $font-color, $key: "color-3");
-    }
-    .url-menu-item {
-      min-height: 40px !important;
-      .url-title-sub {
-        font-size: 9pt !important;
-      }
-    }
-    .text {
-      border: 1px solid map-get($map: $line-color, $key: "color-1");
-      margin: 2rem;
-    }
-    .v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
-      color: inherit !important;
-    }
-  }
 }
